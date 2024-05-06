@@ -1,4 +1,36 @@
 {
   "name": "teamhack",
-  "packageManager": "yarn@4.0.0-rc.45"
+  "version": "1.0.0",
+  "description": "https://speakerdeck.com/masatokinugawa/shibuya-dot-xss-techtalk-number-12",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/luckylat/teamhack.git"
+  },
+  "author": "CleyL",
+  "packageManager": "yarn@4.0.0-rc.45",
+  "devDependencies": {
+    "electron": "^30.0.2",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.cleyl.teamhack",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "assets/**/*",
+      "src/**/*",
+      "package.json",
+      "yarn.lock"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
 }
