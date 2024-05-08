@@ -1,5 +1,6 @@
-const fs = require('fs')
-const { app, BrowserWindow } = require('electron/main')
+const fs = require('fs');
+const path = require('path');
+const { app, BrowserWindow } = require('electron/main');
 const { shell } = require('electron');
 
 const createWindow = () => {
@@ -8,11 +9,11 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    WebPreferences: {
+    webPreferences: {
       //nodeIntegration: true,
       // sandbox: true,
       contextIsolation: false,
-      preload: 'src/preload.js'
+      preload: path.join(__dirname, 'preload.js')
     }
   })
   //サンドボックスがtrue/falseであることを判別する方法
