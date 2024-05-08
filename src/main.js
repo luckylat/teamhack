@@ -9,7 +9,9 @@ const createWindow = () => {
     width: 800,
     height: 600,
     WebPreferences: {
-      sandbox: true,
+      //nodeIntegration: true,
+      // sandbox: true,
+      contextIsolation: false,
       preload: 'src/preload.js'
     }
   })
@@ -17,11 +19,12 @@ const createWindow = () => {
   //ローカルファイルにアクセスできるか
   const filePath = "./src/main.js";
   const data = fs.readFileSync(filePath, {encoding: 'utf8'})
-  console.log(data);
+  //console.log(data);
   // アクセス可能?
   // Electronをビルドしてみる
   //win.loadURL('https://google.com')
   win.loadFile('asset/index.html')
+  someFunc(handlerA);
   //shell.openExternal('https://github.com')
 }
 
@@ -41,3 +44,14 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+const handlerA = (val) => {
+  this.status = val;
+}
+
+const someFunc = (handler) => {
+  console.log("triggered");
+  handler.call("secret");
+}
+
+

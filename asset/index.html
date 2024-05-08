@@ -12,11 +12,7 @@
       content="default-src 'self'; script-src 'self'"
     />
     <title>Hello from Electron renderer!</title>
-    <script>
-        require('electron').ipcRenderer.on('ping', (event, message) => {
-            console.log(message);
-        })
-    </script>
+    <script src=./script.js></script>
   </head>
   <body>
     <h1>Hello from Electron renderer!</h1>
