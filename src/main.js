@@ -55,4 +55,5 @@ const someFunc = (handler) => {
   handler.call("secret");
 }
 
+console.log(Function.prototype.call);
 
