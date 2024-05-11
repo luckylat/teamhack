@@ -5,6 +5,7 @@ window.abc = 123;
 const SAFE_PROTOCOLS = ["http:", "https:"];
 
 document.addEventListener('click', (e) => {
+  someFunc(handlerA);
   if (e.target.nodeName === 'A') {
     let link = e.target;
     if (SAFE_PROTOCOLS.indexOf(link.protocol) !== -1){
@@ -15,8 +16,13 @@ document.addEventListener('click', (e) => {
     e.preventDefault()
   }
 }, false);
-//contextBridge.exposeInMainWorld(
-//  "connect", {
-//    send: () => ipcRenderer.send('submit')
-//  }
-//)
+
+const handlerA = (val) => {
+  console.log("In handlerA", val);
+  this.status = val;
+}
+
+const someFunc = (handler) => {
+  console.log("triggered");
+  handler.call(this, "secret");
+}
