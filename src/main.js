@@ -25,7 +25,6 @@ const createWindow = () => {
   // Electronをビルドしてみる
   //win.loadURL('https://google.com')
   win.loadFile('asset/index.html')
-  someFunc(handlerA);
   //shell.openExternal('https://github.com')
 }
 
@@ -46,14 +45,5 @@ app.on('window-all-closed', () => {
   }
 })
 
-const handlerA = (val) => {
-  this.status = val;
-}
 
-const someFunc = (handler) => {
-  console.log("triggered");
-  handler.call("secret");
-}
-
-console.log(Function.prototype.call);
 
