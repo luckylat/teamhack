@@ -1,6 +1,6 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
-window.abc = 123;
+window.ipc = ipcRenderer;
 
 const SAFE_PROTOCOLS = ["http:", "https:"];
 
